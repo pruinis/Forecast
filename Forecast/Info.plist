@@ -60,5 +60,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <false/>
+    <key>UIStatusBarStyle</key>
+    <string>UIStatusBarStyleLightContent</string>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>We are requesting user auth to read GPS - ALWAYS</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We are requesting user auth to read GPS - ONLY IN USE</string>
 </dict>
 </plist>
