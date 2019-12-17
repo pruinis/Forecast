@@ -17,15 +17,18 @@ class ForecastVC: UIViewController {
     
     var viewModel: ForecastViewModalProtocol?
     
+    let showMapSegue = "showMapSegue"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = Constants.darkBlueColor
         
-        setStatusBarDarkBlueColor()
         updateCollectionView()
         updateTableView()
         
+        // MARK: - View Model actions
+
         viewModel?.onViewDidLoad()
         viewModel?.resloveComplition = { [weak self] forecastData in            
             self?.dayView.setWeather(place: forecastData?.place, weather: self?.viewModel?.selectedWeather)
@@ -41,24 +44,33 @@ class ForecastVC: UIViewController {
         viewModel?.selectedWeatherComplition = { [weak self] weather in
             self?.dayView.setWeather(place: self?.viewModel?.forecastData?.place, weather: weather)
         }
+        
+        // MARK: - DayView actions
+
+        dayView.mapButtonPressedHandler = {
+            self.performSegue(withIdentifier: self.showMapSegue, sender: self)
+        }
+    }
+ 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
-
- 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
+        if  segue.identifier == showMapSegue,
+            let destination = segue.destination as? MapVC {
+            guard let mapViewModel = destination.viewModel as? MapVM else { return }
+            mapViewModel.forecastVM = self.viewModel        
+        }
     }
-    */
-
-
 }
 
 extension ForecastVC : UICollectionViewDelegate, UICollectionViewDataSource {
@@ -107,6 +119,8 @@ extension ForecastVC : UITableViewDelegate, UITableViewDataSource {
         let cell = UINib.init(nibName: "WeekTableViewCell", bundle: nil)
         weekTableView.register(cell, forCellReuseIdentifier: WeekTableViewCell.weekTableViewCellId)
     }
+    
+    // MARK: - UITableViewDelegate, UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

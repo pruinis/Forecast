@@ -48,6 +48,9 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <state key="highlighted" backgroundImage="target"/>
+                    <connections>
+                        <action selector="showMapAction:" destination="-1" eventType="touchUpInside" id="mcg-8h-rbd"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFT-MW-5CM">
                     <rect key="frame" x="20" y="59" width="29.5" height="20"/>

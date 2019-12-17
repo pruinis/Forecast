@@ -15,7 +15,6 @@
 		D531250423A4488200448381 /* ForecastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D531250323A4488200448381 /* ForecastVC.swift */; };
 		D531250723A45BE500448381 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D531250623A45BE500448381 /* UIColor+Hex.swift */; };
 		D531250A23A45FFA00448381 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D531250923A45FFA00448381 /* Constants.swift */; };
-		D531250C23A4638800448381 /* UIViewController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D531250B23A4638800448381 /* UIViewController+StatusBar.swift */; };
 		D531250F23A4730F00448381 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D531250E23A4730F00448381 /* DayView.swift */; };
 		D531251323A47BB100448381 /* DayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D531251223A47BB100448381 /* DayView.xib */; };
 		D531251823A52C1B00448381 /* ForecastVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D531251723A52C1B00448381 /* ForecastVM.swift */; };
@@ -30,6 +29,8 @@
 		D5BE1CF523A804F00064C1F3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE1CF323A804F00064C1F3 /* Helper.swift */; };
 		D5BE1CF823A805210064C1F3 /* String+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE1CF623A805210064C1F3 /* String+Format.swift */; };
 		D5BE1CF923A805210064C1F3 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE1CF723A805210064C1F3 /* Date+Format.swift */; };
+		D5F7111F23A9B62E00CEEA6F /* MapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7111E23A9B62E00CEEA6F /* MapVM.swift */; };
+		D5F7112123A9B63700CEEA6F /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7112023A9B63700CEEA6F /* MapVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +44,6 @@
 		D531250323A4488200448381 /* ForecastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastVC.swift; sourceTree = "<group>"; };
 		D531250623A45BE500448381 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		D531250923A45FFA00448381 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		D531250B23A4638800448381 /* UIViewController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StatusBar.swift"; sourceTree = "<group>"; };
 		D531250E23A4730F00448381 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		D531251223A47BB100448381 /* DayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayView.xib; sourceTree = "<group>"; };
 		D531251723A52C1B00448381 /* ForecastVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastVM.swift; sourceTree = "<group>"; };
@@ -58,6 +58,8 @@
 		D5BE1CF323A804F00064C1F3 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		D5BE1CF623A805210064C1F3 /* String+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Format.swift"; sourceTree = "<group>"; };
 		D5BE1CF723A805210064C1F3 /* Date+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		D5F7111E23A9B62E00CEEA6F /* MapVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVM.swift; sourceTree = "<group>"; };
+		D5F7112023A9B63700CEEA6F /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				D531250323A4488200448381 /* ForecastVC.swift */,
+				D5F7112023A9B63700CEEA6F /* MapVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -123,7 +126,6 @@
 				D531250623A45BE500448381 /* UIColor+Hex.swift */,
 				D5BE1CF623A805210064C1F3 /* String+Format.swift */,
 				D531255023A6B5E600448381 /* DateFormatter+Format.swift */,
-				D531250B23A4638800448381 /* UIViewController+StatusBar.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				D531251723A52C1B00448381 /* ForecastVM.swift */,
+				D5F7111E23A9B62E00CEEA6F /* MapVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -259,8 +262,9 @@
 				D53124F123A3ECFA00448381 /* SceneDelegate.swift in Sources */,
 				D5BE1CF823A805210064C1F3 /* String+Format.swift in Sources */,
 				D531255123A6B5E600448381 /* DateFormatter+Format.swift in Sources */,
+				D5F7112123A9B63700CEEA6F /* MapVC.swift in Sources */,
 				D531251823A52C1B00448381 /* ForecastVM.swift in Sources */,
-				D531250C23A4638800448381 /* UIViewController+StatusBar.swift in Sources */,
+				D5F7111F23A9B62E00CEEA6F /* MapVM.swift in Sources */,
 				D58385A823A855DE0088FD4E /* UIView+Utils.swift in Sources */,
 				D5BE1CF523A804F00064C1F3 /* Helper.swift in Sources */,
 				D531254F23A6B5B700448381 /* SwinjectStoryboard+Setup.swift in Sources */,

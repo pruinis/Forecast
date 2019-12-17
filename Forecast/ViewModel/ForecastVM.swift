@@ -15,7 +15,7 @@ import OpenWeatherMapKit
 typealias ForecastData = (fiveDaysWeather: [[ForecastItem]]?, place: Place?)
 
 
-protocol ForecastViewModalProtocol {
+protocol ForecastViewModalProtocol : class {
     
     var selectedWeather: ForecastItem? { get }
     var selectedWeatherComplition: ((_ selectedWeather: ForecastItem?) -> ())? { get set }
@@ -53,6 +53,7 @@ class ForecastVM : ForecastViewModalProtocol {
     
     func onViewDidLoad() {
         chekLocationAuthorization()
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     func reslove(coordinate: CLLocationCoordinate2D) {
@@ -197,5 +198,16 @@ extension ForecastVM {
     
     fileprivate func showAllowLocationPromt() {
         SwiftSpinner.show(Constants.allowLocationString)
+    }
+    
+    @objc
+    func applicationDidBecomeActive() {
+        if LocationManager.state == .denied {
+            showAllowLocationPromt()
+        }
+        else if SwiftSpinner.shared.animating &&
+            SwiftSpinner.shared.title == Constants.allowLocationString {
+            SwiftSpinner.hide()
+        }
     }
 }
