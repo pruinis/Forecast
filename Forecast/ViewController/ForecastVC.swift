@@ -27,8 +27,8 @@ class ForecastVC: UIViewController {
         updateTableView()
         
         viewModel?.onViewDidLoad()
-        viewModel?.resloveComplition = { [weak self] forecastData in
-            self?.dayView.setWeather(place: forecastData?.place, weather: forecastData?.todayWeather)
+        viewModel?.resloveComplition = { [weak self] forecastData in            
+            self?.dayView.setWeather(place: forecastData?.place, weather: self?.viewModel?.selectedWeather)
             self?.hoursCollectionView.reloadData()
             self?.weekTableView.reloadData()
         }
