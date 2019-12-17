@@ -12,7 +12,7 @@ import CoreLocation
 import SwiftSpinner
 import OpenWeatherMapKit
 
-typealias ForecastData = (todayWeather: ForecastItem?, fiveDaysWeather: [[ForecastItem]]?, place: Place?)
+typealias ForecastData = (fiveDaysWeather: [[ForecastItem]]?, place: Place?)
 
 
 protocol ForecastViewModalProtocol {
@@ -62,8 +62,7 @@ class ForecastVM : ForecastViewModalProtocol {
         selectedForecast = nil
         selectedWeather = nil
         lastCoordinate = coordinate
-        forecastData = ForecastData(nil, nil, nil)
-        getTodayWeather(coordinate: coordinate)
+        forecastData = ForecastData(nil, nil)
         getFiveDaysWeather(coordinate: coordinate)
         geocodPlace(coordinate: coordinate)
                 
@@ -153,23 +152,6 @@ extension ForecastVM {
 extension ForecastVM {
     
     // MARK: - OpenWeatherMapKit
-    
-    fileprivate func getTodayWeather(coordinate: CLLocationCoordinate2D) {
-        
-        dispatchGroup?.enter()
-        let coordinateTuple = (latitude: coordinate.latitude, longitude: coordinate.longitude)
-        OpenWeatherMapKit.instance.currentWeather(forCoordiante: coordinateTuple) { [weak self] (result, error) in
-                        
-            defer { self?.dispatchGroup?.leave() }
-            
-            if let error = error {
-                print("error \(error)")
-                return
-            }
-            
-            self?.forecastData?.todayWeather = result
-        }
-    }
     
     fileprivate func getFiveDaysWeather(coordinate: CLLocationCoordinate2D) {
         
