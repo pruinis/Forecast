@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oog-5e-AIN">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiU-1a-Huc" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="715"/>
@@ -110,17 +110,60 @@
                         <outlet property="hoursCollectionView" destination="xV8-ca-xke" id="zuR-l3-Pqq"/>
                         <outlet property="scrollView" destination="oog-5e-AIN" id="Nlm-C0-IEc"/>
                         <outlet property="weekTableView" destination="rVq-zZ-xTt" id="10f-Gn-t1y"/>
+                        <segue destination="NWj-eg-yVB" kind="show" identifier="showMapSegue" id="aTJ-36-sGY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="708.69565217391312" y="549.77678571428567"/>
         </scene>
+        <!--Long press on map-->
+        <scene sceneID="gjA-Qm-4xM">
+            <objects>
+                <viewController id="NWj-eg-yVB" customClass="MapVC" customModule="Forecast" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C8x-Fw-ttn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFl-Kw-oEg">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="NWj-eg-yVB" id="bMX-uL-KrK"/>
+                                    <outletCollection property="gestureRecognizers" destination="59g-ue-zMA" appends="YES" id="nWV-Ga-Ibr"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UFl-Kw-oEg" firstAttribute="top" secondItem="IvG-PF-EuD" secondAttribute="top" id="3Zx-Gf-zU7"/>
+                            <constraint firstItem="IvG-PF-EuD" firstAttribute="bottom" secondItem="UFl-Kw-oEg" secondAttribute="bottom" id="JUd-HX-tXH"/>
+                            <constraint firstItem="UFl-Kw-oEg" firstAttribute="leading" secondItem="IvG-PF-EuD" secondAttribute="leading" id="knw-kg-MRb"/>
+                            <constraint firstItem="IvG-PF-EuD" firstAttribute="trailing" secondItem="UFl-Kw-oEg" secondAttribute="trailing" id="t0U-Wx-k3I"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IvG-PF-EuD"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Long press on map" id="FLM-br-OSv"/>
+                    <connections>
+                        <outlet property="gestureRecognizer" destination="59g-ue-zMA" id="bw7-Xm-krb"/>
+                        <outlet property="mapView" destination="UFl-Kw-oEg" id="ScH-bY-ozv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HBe-na-sMC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="59g-ue-zMA">
+                    <connections>
+                        <action selector="handleLongPress:" destination="NWj-eg-yVB" id="8Cu-bN-NxO"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1772" y="550"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="nuw-9t-e8J">
             <objects>
-                <navigationController navigationBarHidden="YES" id="e5y-AX-HBJ" sceneMemberID="viewController">
+                <navigationController id="e5y-AX-HBJ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tSY-je-UXv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

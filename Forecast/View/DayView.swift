@@ -22,6 +22,8 @@ class DayView: UIView {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var windLabel: UILabel!
     
+    var mapButtonPressedHandler: (() -> ())?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -38,6 +40,10 @@ class DayView: UIView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         contentView.backgroundColor = Constants.darkBlueColor
+    }
+    
+    @IBAction func showMapAction(_ sender: Any) {
+        mapButtonPressedHandler?()
     }
     
     func setWeather(place: Place?, weather: ForecastItem?) {

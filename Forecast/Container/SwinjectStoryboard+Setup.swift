@@ -17,6 +17,11 @@ extension SwinjectStoryboard {
             c.viewModel = r.resolve(ForecastViewModalProtocol.self)
         }
         
+        defaultContainer.storyboardInitCompleted(MapVC.self) { r, c in
+            c.viewModel = r.resolve(MapViewModalProtocol.self)
+        }
+        
         defaultContainer.register(ForecastViewModalProtocol.self) { _ in ForecastVM(group: DispatchGroup()) }
+        defaultContainer.register(MapViewModalProtocol.self) { _ in MapVM() }
     }
 }
