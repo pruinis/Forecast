@@ -14,6 +14,7 @@ import OpenWeatherMapKit
 
 typealias ForecastData = (fiveDaysWeather: [[ForecastItem]]?, place: Place?)
 
+// MARK: - Protocol
 
 protocol ForecastViewModalProtocol : class {
     
@@ -32,6 +33,8 @@ protocol ForecastViewModalProtocol : class {
     func selectForecast(forecast: [ForecastItem]?)
 
 }
+
+// MARK: - Class
 
 class ForecastVM : ForecastViewModalProtocol {
         
