@@ -111,7 +111,7 @@
                         <outlet property="scrollView" destination="oog-5e-AIN" id="Nlm-C0-IEc"/>
                         <outlet property="weekTableView" destination="rVq-zZ-xTt" id="10f-Gn-t1y"/>
                         <segue destination="NWj-eg-yVB" kind="show" identifier="showMapSegue" id="aTJ-36-sGY"/>
-                        <segue destination="YHb-t5-wwW" kind="show" identifier="showSearchSegue" id="iob-3s-z8K"/>
+                        <segue destination="BVp-B1-YVl" kind="presentation" identifier="showSearchSegue" modalPresentationStyle="fullScreen" id="iob-3s-z8K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -182,11 +182,22 @@
                             <outlet property="delegate" destination="YHb-t5-wwW" id="D88-Gt-NBl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ZSz-cP-kcJ"/>
+                    <navigationItem key="navigationItem" id="ZSz-cP-kcJ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="backbutton" id="0JU-DR-vNb">
+                            <connections>
+                                <action selector="backButtonAcrion:" destination="YHb-t5-wwW" id="nhg-F8-Kpv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Sbn-aa-cfS">
+                            <connections>
+                                <action selector="searchButtonAction:" destination="YHb-t5-wwW" id="tqC-xA-gyq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGr-p8-ZjY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1790" y="1015"/>
+            <point key="canvasLocation" x="2700" y="1014.5089285714286"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nuw-9t-e8J">
@@ -204,5 +215,26 @@
             </objects>
             <point key="canvasLocation" x="-268" y="551"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QjA-V1-loE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BVp-B1-YVl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NbD-JG-9iL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YHb-t5-wwW" kind="relationship" relationship="rootViewController" id="qmD-5L-eZO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eOi-U3-lrw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789.8550724637682" y="1014.5089285714286"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="backbutton" width="16" height="25"/>
+    </resources>
 </document>

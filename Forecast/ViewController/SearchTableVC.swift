@@ -25,13 +25,27 @@ class SearchTableVC: UITableViewController {
         }
         
         viewModel?.dismissHandler = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            self?.backAcrion()
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         searchBar?.resignFirstResponder()
+    }
+    
+    // MARK: - Nav button actions
+    
+    @IBAction func backButtonAcrion(_ sender: Any) {
+        backAcrion()
+    }
+    
+    @IBAction func searchButtonAction(_ sender: Any) {
+        // Empty action because we have autocomplete
+    }
+    
+    func backAcrion() {
+        dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -64,8 +78,6 @@ extension SearchTableVC: UISearchBarDelegate {
         searchBar?.delegate = self
         navigationItem.titleView = searchBar
         searchBar?.becomeFirstResponder()
-        let rightNavBarButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: nil)
-        self.navigationItem.rightBarButtonItem = rightNavBarButton
     }
     
     // MARK: - UISearchBarDelegate

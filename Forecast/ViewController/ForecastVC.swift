@@ -77,7 +77,8 @@ class ForecastVC: UIViewController {
             mapViewModel.forecastVM = self.viewModel        
         }
         else if  segue.identifier == showSearchSegue,
-            let destination = segue.destination as? SearchTableVC {
+            let destinationNavController = segue.destination as? UINavigationController,
+            let destination = destinationNavController.topViewController as? SearchTableVC {
             guard let mapViewModel = destination.viewModel as? SearchVM else { return }
             mapViewModel.forecastVM = self.viewModel
         }
