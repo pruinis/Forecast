@@ -9,11 +9,14 @@
 import UIKit
 import CoreLocation
 
+// MARK: - Protocol
 
-protocol MapViewModalProtocol {        
-    func selectCoordinate(coordinate: CLLocationCoordinate2D)
+protocol MapViewModalProtocol {
     var dismissHandler: (() -> ())? { get set }
+    func selectCoordinate(coordinate: CLLocationCoordinate2D)
 }
+
+// MARK: - Class
 
 class MapVM : MapViewModalProtocol {   
     

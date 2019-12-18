@@ -18,7 +18,8 @@ class ForecastVC: UIViewController {
     var viewModel: ForecastViewModalProtocol?
     
     let showMapSegue = "showMapSegue"
-    
+    let showSearchSegue = "showSearchSegue"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +51,10 @@ class ForecastVC: UIViewController {
         dayView.mapButtonPressedHandler = {
             self.performSegue(withIdentifier: self.showMapSegue, sender: self)
         }
+        
+        dayView.cityButtonPressedHandler = {
+            self.performSegue(withIdentifier: self.showSearchSegue, sender: self)
+        }
     }
  
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +74,11 @@ class ForecastVC: UIViewController {
             let destination = segue.destination as? MapVC {
             guard let mapViewModel = destination.viewModel as? MapVM else { return }
             mapViewModel.forecastVM = self.viewModel        
+        }
+        else if  segue.identifier == showSearchSegue,
+            let destination = segue.destination as? SearchTableVC {
+            guard let mapViewModel = destination.viewModel as? SearchVM else { return }
+            mapViewModel.forecastVM = self.viewModel
         }
     }
 }
