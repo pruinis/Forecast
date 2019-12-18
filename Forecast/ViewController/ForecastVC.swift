@@ -35,6 +35,7 @@ class ForecastVC: UIViewController {
             self?.dayView.setWeather(place: forecastData?.place, weather: self?.viewModel?.selectedWeather)
             self?.hoursCollectionView.reloadData()
             self?.weekTableView.reloadData()
+            self?.selectFirstRow()
         }
         
         viewModel?.selectedForecastComplition = { [weak self] forecast in
@@ -152,5 +153,14 @@ extension ForecastVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         let forecast = viewModel?.forecastData?.fiveDaysWeather?[indexPath.row]
         viewModel?.selectForecast(forecast: forecast)
+    }
+}
+
+extension ForecastVC {
+    
+    func selectFirstRow() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        weekTableView?.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
+        weekTableView?.delegate?.tableView!(weekTableView, didSelectRowAt: indexPath)
     }
 }
