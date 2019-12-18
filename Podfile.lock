@@ -1,0 +1,33 @@
+PODS:
+  - OpenWeatherMapKit (0.2.0)
+  - SwiftLocation (4.2.0)
+  - SwiftSpinner (2.1.0)
+  - Swinject (2.6.2)
+  - SwinjectStoryboard (2.2.0):
+    - Swinject (~> 2.6)
+
+DEPENDENCIES:
+  - OpenWeatherMapKit
+  - SwiftLocation (~> 4.0)
+  - SwiftSpinner
+  - Swinject (~> 2.6.0)
+  - SwinjectStoryboard
+
+SPEC REPOS:
+  trunk:
+    - OpenWeatherMapKit
+    - SwiftLocation
+    - SwiftSpinner
+    - Swinject
+    - SwinjectStoryboard
+
+SPEC CHECKSUMS:
+  OpenWeatherMapKit: b348bc63affd808b114467a77488eb12a523f0b5
+  SwiftLocation: 609ac8859f2c5d48a6cadd2a58c63b1dae02dc25
+  SwiftSpinner: 0f15c006307f8d8bbac075638927ec1361b565d7
+  Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
+  SwinjectStoryboard: 32512ef16c2b0ff5b8f823b23539c4a50f6d3383
+
+PODFILE CHECKSUM: 246a8dd9bcdccdc7f185cc1f38fcfea3fda8abec
+
+COCOAPODS: 1.8.4
