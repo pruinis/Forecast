@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DayView" customModule="Forecast" customModuleProvider="target">
             <connections>
-                <outlet property="cityLabel" destination="DzV-Ub-zNa" id="IuY-CW-2bU"/>
+                <outlet property="cityButton" destination="WtS-w9-OwE" id="j4C-ZR-enb"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="yD0-cX-zbO"/>
                 <outlet property="dayLabel" destination="eFT-MW-5CM" id="AgJ-uc-hX7"/>
                 <outlet property="humidityLabel" destination="0R1-2O-YLR" id="hAs-sS-GgK"/>
@@ -25,21 +25,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="280"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin-marker" translatesAutoresizingMaskIntoConstraints="NO" id="M6B-fS-SIE">
-                    <rect key="frame" x="20" y="20" width="20" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="24" id="HsN-91-PfZ"/>
-                        <constraint firstAttribute="width" constant="20" id="n1W-ue-QA3"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzV-Ub-zNa">
-                    <rect key="frame" x="46" y="19" width="304" height="26.5"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9on-I2-hZC">
-                    <rect key="frame" x="370" y="20" width="24" height="24"/>
+                    <rect key="frame" x="370" y="20.5" width="24" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="dBd-oh-d8E"/>
                         <constraint firstAttribute="width" constant="24" id="sln-mX-fO4"/>
@@ -53,7 +40,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFT-MW-5CM">
-                    <rect key="frame" x="20" y="59" width="29.5" height="20"/>
+                    <rect key="frame" x="15" y="59" width="29.5" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="rL3-am-5TY"/>
                     </constraints>
@@ -170,21 +157,31 @@
                         <constraint firstItem="c1a-c3-to5" firstAttribute="width" secondItem="9S4-jw-CaQ" secondAttribute="width" id="aJj-35-v8Q"/>
                     </constraints>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtS-w9-OwE">
+                    <rect key="frame" x="15" y="20" width="64" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="vLF-M9-Tc6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                    <inset key="imageEdgeInsets" minX="-3" minY="3" maxX="0.0" maxY="3"/>
+                    <state key="normal" title="City" image="pin-marker"/>
+                    <connections>
+                        <action selector="cityAction:" destination="-1" eventType="touchUpInside" id="jYi-Lv-yo0"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="DzV-Ub-zNa" firstAttribute="centerY" secondItem="M6B-fS-SIE" secondAttribute="centerY" id="0ab-Ky-ChC"/>
-                <constraint firstItem="eFT-MW-5CM" firstAttribute="top" secondItem="M6B-fS-SIE" secondAttribute="bottom" constant="15" id="5de-mv-IVq"/>
                 <constraint firstItem="X3v-WU-gLG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="APa-VE-pH9"/>
-                <constraint firstItem="9on-I2-hZC" firstAttribute="leading" secondItem="DzV-Ub-zNa" secondAttribute="trailing" constant="20" id="DEO-r1-BYj"/>
-                <constraint firstItem="DzV-Ub-zNa" firstAttribute="leading" secondItem="M6B-fS-SIE" secondAttribute="trailing" constant="6" id="KCT-xp-xXh"/>
+                <constraint firstItem="9on-I2-hZC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WtS-w9-OwE" secondAttribute="trailing" constant="10" id="CT8-5Z-PQy"/>
+                <constraint firstItem="eFT-MW-5CM" firstAttribute="leading" secondItem="WtS-w9-OwE" secondAttribute="leading" id="D5y-Ru-uPV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="X3v-WU-gLG" secondAttribute="bottom" constant="35" id="Kbd-lZ-QGX"/>
-                <constraint firstItem="eFT-MW-5CM" firstAttribute="leading" secondItem="M6B-fS-SIE" secondAttribute="leading" id="QGC-hl-hde"/>
-                <constraint firstItem="M6B-fS-SIE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="U5S-ul-iL3"/>
-                <constraint firstItem="M6B-fS-SIE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="dFE-HV-xbp"/>
-                <constraint firstItem="9on-I2-hZC" firstAttribute="centerY" secondItem="M6B-fS-SIE" secondAttribute="centerY" id="iaV-YH-5aF"/>
+                <constraint firstItem="eFT-MW-5CM" firstAttribute="top" secondItem="WtS-w9-OwE" secondAttribute="bottom" constant="14" id="MHb-Ai-u91"/>
+                <constraint firstItem="WtS-w9-OwE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="MPs-e5-uSh"/>
+                <constraint firstItem="WtS-w9-OwE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="XM1-Ag-see"/>
                 <constraint firstItem="X3v-WU-gLG" firstAttribute="top" secondItem="eFT-MW-5CM" secondAttribute="bottom" constant="35" id="jA5-Mw-Ugr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9on-I2-hZC" secondAttribute="trailing" constant="20" id="o8k-ZX-PNi"/>
+                <constraint firstItem="9on-I2-hZC" firstAttribute="centerY" secondItem="WtS-w9-OwE" secondAttribute="centerY" id="rmY-N9-4EV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="X3v-WU-gLG" secondAttribute="trailing" constant="20" id="xFh-tM-wj7"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
