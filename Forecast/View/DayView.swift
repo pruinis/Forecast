@@ -13,9 +13,9 @@ import OpenWeatherMapKit
 class DayView: UIView {
 
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var dayLabel: UILabel!    
+    @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var mapButton: UIButton!
+    @IBOutlet weak var cityButton: UIButton!
     
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var rainManLabel: UILabel!
@@ -23,6 +23,7 @@ class DayView: UIView {
     @IBOutlet weak var windLabel: UILabel!
     
     var mapButtonPressedHandler: (() -> ())?
+    var cityButtonPressedHandler: (() -> ())?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,6 +43,10 @@ class DayView: UIView {
         contentView.backgroundColor = Constants.darkBlueColor
     }
     
+    @IBAction func cityAction(_ sender: Any) {
+        cityButtonPressedHandler?()
+    }
+    
     @IBAction func showMapAction(_ sender: Any) {
         mapButtonPressedHandler?()
     }
@@ -49,7 +54,8 @@ class DayView: UIView {
     func setWeather(place: Place?, weather: ForecastItem?) {
                 
         // City
-        cityLabel.text = place?.city
+        cityButton.setTitle(place?.city, for: .normal)
+
         
         // Date
         let date = Date(timeIntervalSince1970: weather?.dt ?? 0)            
